@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+    - let image_names = ['line_color.jpg','line_thickness.jpg','line_type.jpg','lines_onroad.jpg','parallellines.png']
+  - for(let i=0;i<3;i++){
+      - let rno = Math.floor(Math.random()*5)
+      - let line_imagename = image_names[rno]
+      img(src=`images/${line_imagename}` alt='lines' style='width:300px; height:300px;')
+  - }
+  

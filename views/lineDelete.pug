@@ -1,0 +1,53 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  if (toShow == null) 
+    h2 No instance to delete 
+  else 
+    - let lineid = toShow._id 
+    - let line_type = toShow.line_type 
+    - let line_thickness = toShow.line_thickness 
+    - let line_color = toShow.line_color 
+    - let actionid = "/resource/line/" + lineid 
+    script let actionid = "#{actionid}" 
+    div 
+      div.row 
+        div(class='lineAttr mr-3') Line ID is: 
+        div #{lineid} 
+      div.row 
+        div(class='lineAttr mr-3') Line Type is: 
+        div #{line_type} 
+      div.row 
+        div(class='lineAttr mr-3') Line Thickness is: 
+        div #{line_thickness} 
+      div.row 
+        div(class='lineAttr mr-3') Line Color is: 
+        div #{line_color} 
+ 
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
+ 
+  script. 
+    function cancel() { 
+      // Go back to the home page for the Line collection 
+      window.location.href='/lines' 
+    } 
+  script. 
+    function deleteOnid() { 
+      console.log("starting delete") 
+      // delete first 
+      fetch(actionid, { 
+        method: 'DELETE'      //Don't need a body for the delete 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Delete succeded") 
+        window.location.href='/lines' 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Delete failed " + error ) 
+      }); 
+    } 

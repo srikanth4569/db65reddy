@@ -23,6 +23,12 @@ const line_controlers= require('../controllers/line');
  
 /* GET lines */ 
 router.get('/', line_controlers.line_view_all_Page ); 
-
-
+/* GET detail line page */ 
+router.get('/detail', line_controlers.line_view_one_Page); 
+/* GET create line page */ 
+router.get('/create', line_controlers.line_create_Page); 
+/* GET create update page */ 
+router.get('/update', line_controlers.line_update_Page);
+/* GET create delete page */ 
+router.get('/delete', line_controlers.line_delete_Page); 
 module.exports = router;

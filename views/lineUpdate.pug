@@ -1,0 +1,46 @@
+extends layout 
+ 
+block content 
+ h1= title 
+ if (toShow == null) 
+    h2 No details to update for id #{inputId}
+ else 
+  - let lineid = toShow._id 
+  - let line_type = toShow.line_type 
+  - let line_thickness = toShow.line_thickness 
+  - let line_color = toShow.line_color
+   
+  div.row(class='mb-2') 
+    div.mr-1 ID is 
+    div #{lineid} 
+  - let actionid = "/resource/line/" + lineid 
+  form(id='lineForm', action= actionid, method="PUT") 
+    div.form-group 
+        label.lineAttr(for='line_type') Line type 
+        input#line_type(type='text', name='line_type', value= line_type ) 
+    div.form-group 
+        label.lineAttr(for='line_thickness') Line thickness 
+        input#size(type='number', name='line_thickness', value= line_thickness  ) 
+    div.form-group 
+        label.lineAttr(for='line_color') Line color  
+        input#cost(type='text', name='line_color', value= line_color ) 
+    input(type="submit") 
+ 
+  script. 
+    document.forms['lineForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'PUT', 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Update succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Update failed " + error ) 
+      }); 
+    }); 
+ 

@@ -6,3 +6,20 @@ body {
 a {
   color: #00B7FF;
 }
+
+.lineAttr { 
+  background-color: aquamarine; 
+  width: 120px; 
+}
+
+.lineCreateLabel {
+  font-size: 12px;
+  padding-top: 5px;
+}
+
+.heading1 {
+  margin-left: 18px;
+
+    margin-bottom: 20px;
+
+}

@@ -70,7 +70,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/line', lineRouter);
+app.use('/lines', lineRouter);
 app.use('/addmods',addmodsRouter);
 app.use('/selector',selectorRouter);
 app.use('/resource',resourceRouter);

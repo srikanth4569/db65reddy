@@ -1,0 +1,24 @@
+extends layout 
+ 
+block content 
+ h1= title 
+ if (toShow == null) 
+    h2 No details found for id #{inputId}
+ else
+  - let lineid = toShow._id 
+  - let line_type = toShow.line_type 
+  - let line_thickness = toShow.line_thickness 
+  - let line_color = toShow.line_color 
+  div 
+    div.row 
+      div(class='lineAttr mr-3') Line ID is: 
+      div #{lineid} 
+    div.row 
+      div(class='lineAttr mr-3') Line Type is: 
+      div #{line_type} 
+    div.row 
+      div(class='lineAttr mr-3') Line Size is: 
+      div #{line_color} 
+    div.row 
+      div(class='lineAttr mr-3') Line Cost is: 
+      div #{line_thickness}

@@ -17,13 +17,13 @@ block content
   form(id='lineForm', action= actionid, method="PUT") 
     div.form-group 
         label.lineAttr(for='line_type') Line type 
-        input#line_type(type='text', name='line_type', value= line_type ) 
+        input#line_type(type='text', name='line_type', value= line_type, pattern="[A-Za-z]{1,32}", required, title="Enter string containing alphabets of length up to 32") 
     div.form-group 
         label.lineAttr(for='line_thickness') Line thickness 
-        input#size(type='number', name='line_thickness', value= line_thickness  ) 
+        input#size(type='number', name='line_thickness', value= line_thickness, min="4", max="10", required) 
     div.form-group 
         label.lineAttr(for='line_color') Line color  
-        input#cost(type='text', name='line_color', value= line_color ) 
+        input#cost(type='text', name='line_color', value= line_color, required ) 
     input(type="submit") 
  
   script. 

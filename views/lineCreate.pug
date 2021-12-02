@@ -6,13 +6,13 @@ block content
   form(id='LineForm', action="/resource/line", method="POST") 
     div.form-group(class="row m-2")
         label.lineCreateLabel(for='line_type', class="col-4 col-lg-1") Line type 
-        input#line_type(type='text', name='line_type', class="col-4 col-lg-2") 
+        input#line_type(type='text', name='line_type', class="col-4 col-lg-2", pattern="[A-Za-z]{1,32}", required, title="Enter string containing alphabets of length up to 32") 
     div.form-group(class="row m-2") 
         label.lineCreateLabel(for='line_thickness', class="col-4 col-lg-1") Line thickness 
-        input#size(type='number', name='line_thickness', class="col-4 col-lg-2") 
+        input#size(type='number', name='line_thickness', class="col-4 col-lg-2", min="4", max="10", required) 
     div.form-group(class="row m-2") 
         label.lineCreateLabel(for='line_color', class="col-4 col-lg-1") Line color 
-        input#cost(type='text', name='line_color', class="col-4 col-lg-2") 
+        input#cost(type='text', name='line_color', class="col-4 col-lg-2", required) 
     button(type="submit", class="btn btn-primary p-2 m-4 center") Submit
  
  

@@ -1,5 +1,5 @@
 # fwa65reddy
-heroku server https://git.heroku.com/db65reddy.git
+heroku server https://db65reddy.herokuapp.com/
 
 line
 line_type(string) line_thickness(number) line_color(string)
